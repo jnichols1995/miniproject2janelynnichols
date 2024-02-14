@@ -26,7 +26,7 @@ This project utilizes Padas dataframe and Matplotlib to graph information from K
 
 Data Source: https://www.kaggle.com/datasets/agarwalyashhh/best-selling-books?resource=download
 ```
-code blocks for commands
+requirements.txt
 ```
 
 ## Help
