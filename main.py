@@ -23,6 +23,7 @@ import numpy as np
 import copy
 import pathlib as Path
 import os
+import re
 
 #create charts folder to store .png files
 try:
@@ -31,13 +32,27 @@ except FileExistsError:
     pass
 
 #import books_data.csv
-books = pd.read_csv("books_data.csv", index_col=0, parse_dates=True)
-print(books.head())
+books = pd.read_csv("books_data.csv", index_col=0)
+'''
+books1 = re.compile('English')
+Language = books["Language"].describe()
 
-#Print series headers
-for col in books.columns:
-    print(col)
+foundCount = 0
+for language in Language:
+    mo.books1.search(line)
+    if mo.group():
+        foundCount =+1
+    print(mo.count("English"))
+'''
 
-df = pd.DataFrame(books)
-df["Sales_in_millions"].max()
+df = pd.DataFrame({'Language':['Chinese', 'Czech', 'Dutch', 'English', 'French','German', 'Gujarati', 'Italian','Japanese','Norwegian','Polish','Portuguese','Russian','Spanish','Swedish','Yiddish'],'Number of Books':[5,1,2,210, 11,6,1,5,26,4,1,1,7,3,6,1]})
+ax = df.plot.bar(x='Language', y='Number of Books', rot=0)
+plt.title("Number of Books by Language")
+plt.xlabel("Language")
+plt.ylabel("Number of books")
+plt.show()
+
+
+
+
 
