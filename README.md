@@ -11,7 +11,7 @@ This project utilizes Pandas dataframe and Matplotlib to graph information from 
 ## Getting Started
 
 ### Dependencies
-Program creates a folder using os.mkdir requiring a Windows machine
+
 
 ### Installing
 

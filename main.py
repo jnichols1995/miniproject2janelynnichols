@@ -2,6 +2,7 @@
 # Janelyn Nichols
 # Mini Project 2
 
+# Mini Project 2 requirements
 # (5/5 points) Initial comments with your name, class and project at the top of your .py file.
 # (5/5 points) Proper import of packages used.
 # (20/20 points) Using a data source of your choice, such as data from data.gov or using the Faker package, generate or retrieve some data for creating basic statistics on. This will generally come in as json data, etc.
@@ -21,11 +22,22 @@ import matplotlib.pyplot as plt
 import numpy as np
 import copy
 import pathlib as Path
+import os
 
+#create charts folder to store .png files
 try:
-    Path("charts").mkdir()
+    os.makedirs('charts')
 except FileExistsError:
     pass
 
+#import books_data.csv
 books = pd.read_csv("books_data.csv", index_col=0, parse_dates=True)
 print(books.head())
+
+#Print series headers
+for col in books.columns:
+    print(col)
+
+df = pd.DataFrame(books)
+df["Sales_in_millions"].max()
+
