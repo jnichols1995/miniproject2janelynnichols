@@ -44,13 +44,26 @@ for language in Language:
         foundCount =+1
     print(mo.count("English"))
 '''
+selectLanguage = ["Italian"]
+df1 = pd.read_csv("books_data.csv")
+mask = df1["Language"].isin(selectLanguage)
+selectRecords = df1[mask]
+print(selectRecords)
+
+ax1 = selectRecords.plot(x='Authors', y='Sales_in_millions')
+plt.title("Italian Book Sales in Millions of Dollars")
+plt.show()
 
 df = pd.DataFrame({'Language':['Chinese', 'Czech', 'Dutch', 'English', 'French','German', 'Gujarati', 'Italian','Japanese','Norwegian','Polish','Portuguese','Russian','Spanish','Swedish','Yiddish'],'Number of Books':[5,1,2,210, 11,6,1,5,26,4,1,1,7,3,6,1]})
-ax = df.plot.bar(x='Language', y='Number of Books', rot=0)
+ax = df.plot.bar(x='Language', y='Number of Books', rot=0, color = "g")
 plt.title("Number of Books by Language")
 plt.xlabel("Language")
 plt.ylabel("Number of books")
 plt.show()
+
+
+
+
 
 
 
