@@ -44,20 +44,31 @@ for language in Language:
         foundCount =+1
     print(mo.count("English"))
 '''
-selectLanguage = ["German"]
+
+selectLanguage = ["German", "Italian", "Portuguese"]
 df1 = pd.read_csv("books_data.csv")
 mask = df1["Language"].isin(selectLanguage)
 selectRecords = df1[mask]
 print(selectRecords)
 
 ax1 = selectRecords.plot(x='Authors', y='Sales_in_millions')
-plt.title("Italian Book Sales in Millions of Dollars")
+plt.title("Book Sales in Millions of Dollars")
 plt.show()
+plt.savefig("charts/" + "BookSalesinMillions.png")
 
 authors = selectRecords["Authors"].value_counts()
 ax2 = authors.plot()
 ax2.set_title("Count of Books by Author")
+chart2="Count of Books by Author"
 ax2.legend()
+plt.show()
+plt.savefig("charts/"+"CountofBooks.png")
+
+languages = selectRecords["Language"].value_counts()
+ax3 = languages.plot.bar(x='Language', y='Book Count', color='r')
+plt.title("Count of Books by Language")
+plt.xlabel("Language")
+plt.ylabel("Book Count")
 plt.show()
 
 df = pd.DataFrame({'Language':['Chinese', 'Czech', 'Dutch', 'English', 'French','German', 'Gujarati', 'Italian','Japanese','Norwegian','Polish','Portuguese','Russian','Spanish','Swedish','Yiddish'],'Number of Books':[5,1,2,210, 11,6,1,5,26,4,1,1,7,3,6,1]})
@@ -66,12 +77,6 @@ plt.title("Number of Books by Language")
 plt.xlabel("Language")
 plt.ylabel("Number of books")
 plt.show()
-
-
-
-
-
-
-
+plt.savefig("charts/" + "NumberOfBooks.png")
 
 
