@@ -62,7 +62,7 @@ ax2.set_title("Count of Books by Author")
 chart2="Count of Books by Author"
 ax2.legend()
 plt.show()
-plt.savefig("charts/"+"CountofBooks.png")
+plt.savefig("charts/"+"CountofBookbyAuthor.png")
 
 languages = selectRecords["Language"].value_counts()
 ax3 = languages.plot.bar(x='Language', y='Book Count', color='r')
@@ -70,6 +70,7 @@ plt.title("Count of Books by Language")
 plt.xlabel("Language")
 plt.ylabel("Book Count")
 plt.show()
+plt.savefig("charts/"+"CountofBooksbyLanguage.png")
 
 df = pd.DataFrame({'Language':['Chinese', 'Czech', 'Dutch', 'English', 'French','German', 'Gujarati', 'Italian','Japanese','Norwegian','Polish','Portuguese','Russian','Spanish','Swedish','Yiddish'],'Number of Books':[5,1,2,210, 11,6,1,5,26,4,1,1,7,3,6,1]})
 ax = df.plot.bar(x='Language', y='Number of Books', rot=0, color = "g")
