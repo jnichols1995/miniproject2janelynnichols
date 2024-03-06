@@ -19,11 +19,8 @@
 
 import pandas as pd
 import matplotlib.pyplot as plt
-import numpy as np
-import copy
-import pathlib as Path
 import os
-import re
+
 
 #create charts folder to store .png files
 try:
@@ -52,21 +49,21 @@ selectRecords = df1[mask]
 print(selectRecords)
 
 ax1 = selectRecords.plot(x='Authors', y='Sales_in_millions')
-plt.title("Book Sales in Millions of Dollars")
+plt.title("German, Italian, and Portuguese Book Sales in Millions of Dollars")
 plt.show()
 plt.savefig("charts/" + "BookSalesinMillions.png")
 
 authors = selectRecords["Authors"].value_counts()
 ax2 = authors.plot()
-ax2.set_title("Count of Books by Author")
-chart2="Count of Books by Author"
-ax2.legend()
+ax2.set_title("Count of German, Italian, and Portuguese Books by Author")
+plt.xlabel("Authors")
+plt.ylabel("Count of Books")
 plt.show()
 plt.savefig("charts/"+"CountofBookbyAuthor.png")
 
 languages = selectRecords["Language"].value_counts()
 ax3 = languages.plot.bar(x='Language', y='Book Count', color='r')
-plt.title("Count of Books by Language")
+plt.title("Count of German, Italian, and Portuguese Books by Language")
 plt.xlabel("Language")
 plt.ylabel("Book Count")
 plt.show()
@@ -80,4 +77,10 @@ plt.ylabel("Number of books")
 plt.show()
 plt.savefig("charts/" + "NumberOfBooks.png")
 
-
+df2 = pd.DataFrame({'Author':['J. K. Rowling', 'R. L. Stine', 'C. S. Lewis'], 'Millions in Sales': [1122, 480, 120]})
+ax4 = df2.plot.bar(x='Author', y='Millions in Sales', rot=0, color = "grey")
+plt.title("Book Sales for J. K. Rowling, R. L. Stine, and C. S. Lewis")
+plt.xlabel("Author")
+plt.ylabel("Sales in Millions")
+plt.show()
+plt.savefig("charts/" + "SelectAutorBookSales.png")
